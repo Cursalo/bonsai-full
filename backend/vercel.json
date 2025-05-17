@@ -1,19 +1,50 @@
 {
   "version": 2,
+  "buildCommand": "./build.sh",
+  "outputDirectory": "frontend/build",
   "builds": [
-    {
-      "src": "src/index.ts",
+    { 
+      "src": "frontend/package.json", 
+      "use": "@vercel/static-build",
+      "config": { 
+        "distDir": "build" 
+      }
+    },
+    { 
+      "src": "backend/src/index.ts", 
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "backend/src/index.ts"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "frontend/build/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "frontend/build/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "frontend/build/manifest.json"
+    },
+    {
+      "src": "/asset-manifest.json",
+      "dest": "frontend/build/asset-manifest.json"
+    },
+    {
       "src": "/(.*)",
-      "dest": "src/index.ts"
+      "dest": "frontend/build/index.html"
     }
   ],
   "env": {
-    "SUPABASE_URL": "https://tzekravlcxjpfeetbsfr.supabase.co",
-    "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6ZWtyYXZsY3hqcGZlZXRic2ZyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NTUwMTU2MiwiZXhwIjoyMDYxMDc3NTYyfQ.UHbcYbnlcqVMNjVTUxaMlH9xRGDmxXZEotG7v5Kw-Dw"
+    "SUPABASE_URL": "${https://tzekravlcxjpfeetbsfr.supabase.co
+}",
+    "SUPABASE_ANON_KEY": "${SUPABASE_ANON_KEY}",
+    "SUPABASE_SERVICE_ROLE_KEY": "${SUPABASE_SERVICE_ROLE_KEY}"
   }
 } 
