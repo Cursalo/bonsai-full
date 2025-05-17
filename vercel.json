@@ -1,2 +1,50 @@
 {
   "version": 2,
+  "buildCommand": "./build.sh",
+  "outputDirectory": "frontend/build",
+  "builds": [
+    { 
+      "src": "frontend/package.json", 
+      "use": "@vercel/static-build",
+      "config": { 
+        "distDir": "build" 
+      }
+    },
+    { 
+      "src": "backend/src/index.ts", 
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/src/index.ts"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "frontend/build/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "frontend/build/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "frontend/build/manifest.json"
+    },
+    {
+      "src": "/asset-manifest.json",
+      "dest": "frontend/build/asset-manifest.json"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/build/index.html"
+    }
+  ],
+  "env": {
+    "SUPABASE_URL": "${https://tzekravlcxjpfeetbsfr.supabase.co
+}",
+    "SUPABASE_ANON_KEY": "${SUPABASE_ANON_KEY}",
+    "SUPABASE_SERVICE_ROLE_KEY": "${SUPABASE_SERVICE_ROLE_KEY}"
+  }
+} 
