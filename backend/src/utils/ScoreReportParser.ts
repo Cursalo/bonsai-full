@@ -156,7 +156,7 @@ class ScoreReportParser {
   public async generateQuestionsWithAI(parsedReport: ParsedScoreReport, count: number = 10): Promise<AIGeneratedQuestion[]> {
     try {
       // Get the model
-      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
       
       // Create a prompt based on missed questions
       const missedQuestions = parsedReport.questions.filter(q => !q.isCorrect);
