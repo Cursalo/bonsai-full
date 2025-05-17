@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/index.ts"
+    }
+  ],
+  "env": {
+    "SUPABASE_URL": "https://tzekravlcxjpfeetbsfr.supabase.co",
+    "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6ZWtyYXZsY3hqcGZlZXRic2ZyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NTUwMTU2MiwiZXhwIjoyMDYxMDc3NTYyfQ.UHbcYbnlcqVMNjVTUxaMlH9xRGDmxXZEotG7v5Kw-Dw"
+  }
+} 

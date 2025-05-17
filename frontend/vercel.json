@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "devCommand": "npm start",
+  "installCommand": "npm install",
+  "framework": "create-react-app",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "env": {
+    "REACT_APP_SUPABASE_URL": "https://tzekravlcxjpfeetbsfr.supabase.co",
+    "REACT_APP_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6ZWtyYXZsY3hqcGZlZXRic2ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1MDE1NjIsImV4cCI6MjA2MTA3NzU2Mn0.t1gqnRPUqXQpK62v0dA8Iqu7y8Lm0u_5VWBWHzdeKKY"
+  }
+} 
