@@ -31,7 +31,6 @@ import PlayLessonIcon from '@mui/icons-material/PlayLesson';
 import InsightsIcon from '@mui/icons-material/Insights';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
-import ForestIcon from '@mui/icons-material/Forest';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
